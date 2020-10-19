@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.3.2/moment-duration-format.min.js"></script>
+    <script>
+      setInterval(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const until = moment(urlParams.get('until'));
+        const duration = moment.duration(until.diff(moment()));
+        document.getElementById('remaintime').innerHTML = duration.format();
+      }, 1000);
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Commissioner&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <p
+      style="font-family: 'Commissioner', sans-serif; font-size: 300%"
+      id="remaintime"
+    ></p>
+  </body>
+</html>
